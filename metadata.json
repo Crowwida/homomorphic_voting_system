@@ -1,0 +1,5 @@
+{
+  "name": "Homomorphic Voting System",
+  "description": "A simple voting system demonstrating Paillier homomorphic encryption.",
+  "requestFramePermissions": []
+}

@@ -1,55 +1,55 @@
-# Homomorphic Voting System
+# 同态加密投票系统 (Homomorphic Voting System)
 
-A simple, educational voting system demonstrating Paillier homomorphic encryption. Built with React and TypeScript.
+一个用于教学演示的简单投票系统，基于 Paillier 同态加密算法实现。本项目使用 React 和 TypeScript 构建。
 
-## Overview
+## 项目简介
 
-This project implements a privacy-preserving election system using the Paillier cryptosystem. It demonstrates how homomorphic encryption allows computations (like tallying votes) to be performed on encrypted data without ever decrypting it.
+本项目实现了一个基于 Paillier 密码系统的隐私保护选举系统。它直观地展示了同态加密技术如何在不解密数据的情况下，直接对密文进行计算（例如计票）。
 
-The system is divided into three main components:
-1. **Voting Booth (Client)**: Encrypts votes locally before sending them to the server.
-2. **Untrusted Server**: Aggregates the encrypted votes using homomorphic addition (multiplying ciphertexts).
-3. **Election Authority**: Decrypts the final aggregated tally using the private key.
+系统主要分为以下三个核心组件：
+1. **投票亭 (客户端)**：选民在本地设备上对选票进行加密，然后再发送给服务器。
+2. **不可信服务器 (服务端)**：服务器利用同态加法特性（即密文相乘），将所有加密的选票聚合在一起。
+3. **选举委员会 (计票中心)**：使用私钥对最终聚合后的密文进行解密，得出最终的选举结果。
 
-## Features
+## 功能特点
 
-- **Pure TypeScript Paillier Implementation**: Includes big integer math, prime generation (Miller-Rabin), and modular arithmetic from scratch.
-- **Client-Side Encryption**: Votes are encrypted on the voter's device.
-- **Homomorphic Tallying**: The server computes the final result without knowing individual votes.
-- **Modern UI**: Built with React, Tailwind CSS, and Lucide icons for a clean, educational interface.
+- **纯 TypeScript Paillier 实现**：从零开始实现了大整数运算、素数生成（Miller-Rabin 素性检验）以及模算术等底层密码学算法。
+- **客户端加密**：选票在离开选民设备前就已经被完全加密。
+- **同态计票**：服务器在完全不知道单张选票内容的情况下，计算出最终的得票总数。
+- **现代化 UI**：使用 React、Tailwind CSS 和 Lucide 图标构建了清晰、直观的教学演示界面。
 
-## Prerequisites
+## 环境要求
 
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- npm (comes with Node.js)
+- [Node.js](https://nodejs.org/) (建议版本 v18 或更高)
+- npm (随 Node.js 一起安装)
 
-## How to Run Locally
+## 如何在本地运行
 
-1. **Clone the repository** (if you haven't already):
+1. **克隆代码仓库**：
    ```bash
    git clone https://github.com/Crowwida/homomorphic_voting_system.git
    cd homomorphic_voting_system
    ```
 
-2. **Install dependencies**:
+2. **安装依赖**：
    ```bash
    npm install
    ```
 
-3. **Start the development server**:
+3. **启动开发服务器**：
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**:
-   Navigate to `http://localhost:5173` (or the port shown in your terminal) to view the application.
+4. **在浏览器中打开**：
+   访问终端中显示的地址（通常是 `http://localhost:5173`）即可查看并使用该应用程序。
 
-## Project Structure
+## 项目结构
 
-- `src/App.tsx`: The main React component containing the UI and application logic.
-- `src/utils/paillier.ts`: The core cryptographic implementation of the Paillier cryptosystem.
-- `src/index.css`: Tailwind CSS configuration and global styles.
+- `src/App.tsx`: 包含 UI 和应用程序主要逻辑的 React 组件。
+- `src/utils/paillier.ts`: Paillier 密码系统的核心密码学算法实现。
+- `src/index.css`: Tailwind CSS 配置和全局样式。
 
-## Educational Purpose
+## 教学目的声明
 
-This project was created as an educational demonstration of homomorphic encryption and privacy-preserving computation. It is **not** intended for use in real-world, high-stakes elections, as a production-ready system would require significantly larger key sizes (e.g., 2048-bit or 4096-bit primes), robust zero-knowledge proofs (to ensure a voter only casts one valid vote), and a secure distributed architecture.
+本项目主要用于同态加密和隐私保护计算的教学演示。它**不适合**用于真实世界中高风险的选举活动。一个生产级别的系统需要大得多的密钥长度（例如 2048 位或 4096 位素数），需要强大的零知识证明（以确保选民只能投出有效的一票），以及安全的分布式架构。
